@@ -66,43 +66,7 @@
                         <strong>Custom X01</strong>
                     </button>
                 </div>
-                <button class="multiplayer-btn" id="enable-multiplayer-btn">🌐 Enable Multiplayer Mode</button>
                 <button class="back-btn" id="back-from-game-type">Back to Starting Player</button>
-            </div>
-        </div>
-
-        <!-- Multiplayer Setup Screen -->
-        <div id="multiplayer-setup-screen" class="screen">
-            <div class="modal-header">
-                <h1>Multiplayer Setup</h1>
-            </div>
-            <div class="modal-content">
-                <div class="multiplayer-options">
-                    <div class="multiplayer-info">
-                        <p>Play remotely with another player. Each player controls their own turns from different devices.</p>
-                    </div>
-                    
-                    <div class="multiplayer-role-selection">
-                        <h3>Choose Your Role:</h3>
-                        <button class="game-option-btn" id="join-as-player1">
-                            <strong>Join as Home Player</strong><br>
-                            <span>You will play as the left/home player</span>
-                        </button>
-                        <button class="game-option-btn" id="join-as-player2">
-                            <strong>Join as Away Player</strong><br>
-                            <span>You will play as the right/away player</span>
-                        </button>
-                    </div>
-                    
-                    <div class="multiplayer-code-entry" style="margin-top: 20px;">
-                        <h3>Enter Game Code:</h3>
-                        <input type="text" id="multiplayer-code-input" class="code-input" placeholder="Enter 4-digit code" maxlength="4" pattern="[0-9]{4}">
-                        <button class="game-option-btn" id="join-multiplayer-game" style="margin-top: 10px;">
-                            <strong>Join Game</strong>
-                        </button>
-                    </div>
-                </div>
-                <button class="back-btn" id="back-from-multiplayer">Back to Game Type</button>
             </div>
         </div>
 
@@ -330,7 +294,6 @@
 
             <div class="bottom-bar">
                 <button class="bottom-btn green" id="select-players-btn2">Select Players</button>
-                <div class="bottom-btn gold" id="connection-code-display" style="cursor: default; font-size: clamp(18px, 4vw, 24px); font-weight: bold; letter-spacing: 4px;">----</div>
             </div>
 
             <div class="match-info-bar">
@@ -371,7 +334,6 @@
                 </div>
                 <div class="game-info">
                     <button class="game-format-display" id="game-format-btn">501 SIDO</button>
-                    <button class="game-format-display" id="connect-match-btn">🌐 Connect</button>
                     <button class="legs-format-display" id="legs-format-btn">Best of 3 Legs</button>
                 </div>
             </div>
@@ -402,7 +364,6 @@
                     </div>
                 </div>
                 <div class="timer-display">
-                    <div class="control-btn gold" id="connection-code-display-3" style="cursor: default; font-size: clamp(18px, 3vw, 20px); font-weight: bold; letter-spacing: 3px; margin-bottom: 10px;">----</div>
                     <img src="dartstream-logo.png" alt="DartStream" class="game-logo">
                     <div class="version-text">v1.0.0</div>
                 </div>
@@ -579,63 +540,6 @@
         </div>
     </div>
 
-    <!-- Match Connection Modal -->
-    <div id="connection-modal" class="modal-overlay">
-        <div class="modal-content connection-modal-content">
-            <h2 class="modal-title">Match Connection</h2>
-            
-            <!-- Initial Connection Options -->
-            <div id="connection-options" class="connection-options">
-                <button class="connection-option-btn" id="generate-code-btn">
-                    <strong>🔢 Generate Match Code</strong><br>
-                    <span>Create a new connection code</span>
-                </button>
-                <button class="connection-option-btn" id="connect-to-match-btn">
-                    <strong>🔗 Connect to Match</strong><br>
-                    <span>Enter an existing code</span>
-                </button>
-            </div>
-
-            <!-- Generated Code Display -->
-            <div id="generated-code-display" class="generated-code-display" style="display: none;">
-                <h3>Your Match Code</h3>
-                <div class="connection-code-box" id="display-connection-code">----</div>
-                <p class="connection-instruction">Share this code with the other player</p>
-                <button class="connection-btn green" id="code-done-btn">Done</button>
-            </div>
-
-            <!-- Connect to Match Input -->
-            <div id="connect-input-display" class="connect-input-display" style="display: none;">
-                <h3>Enter Match Code</h3>
-                <input type="text" id="connect-code-input" class="code-input" placeholder="Enter 4-digit code" maxlength="4" pattern="[0-9]{4}">
-                <div class="connection-buttons">
-                    <button class="connection-btn green" id="confirm-connect-btn">Connect</button>
-                    <button class="connection-btn red" id="cancel-connect-btn">Cancel</button>
-                </div>
-            </div>
-
-            <button class="modal-close-btn" id="close-connection-modal">✕</button>
-        </div>
-    </div>
-
-    <!-- Load Supabase JS Client -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="supabase-config.js"></script>
-    <script src="connection-handler.js"></script>
-    <script type="module">
-        // Import modules
-        import { PlayerLibraryModule } from './player-library.js';
-        import { GameSetupModule } from './game-setup.js';
-        
-        // Make them globally available
-        window.PlayerLibraryModule = PlayerLibraryModule;
-        window.GameSetupModule = GameSetupModule;
-        
-        // Initialize modules
-        PlayerLibraryModule.initialize();
-        GameSetupModule.initialize();
-    </script>
-    <script src="scoring-app.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

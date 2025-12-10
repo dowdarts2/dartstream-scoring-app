@@ -43,24 +43,9 @@ export const PlayerLibraryModule = {
                 localStorage.setItem('playerLibrary', JSON.stringify(players));
                 console.log('Synced players with Supabase:', players.length);
             } else {
-                console.log('No players in database, adding defaults...');
-                // If no players in database, add default players
-                const defaultPlayers = [
-                    { firstName: 'Kayla', lastName: 'Melanson' },
-                    { firstName: 'mark', lastName: 'roberts' },
-                    { firstName: 'Matthew', lastName: 'Dow' }
-                ];
-                
-                const PlayerDB = this.getPlayerDB();
-                for (const player of defaultPlayers) {
-                    await PlayerDB.addPlayer(player.firstName, player.lastName);
-                }
-                
-                // Fetch again after adding defaults
-                const refreshedPlayers = await PlayerDB.getAllPlayers();
-                this.playerLibrary = refreshedPlayers;
-                localStorage.setItem('playerLibrary', JSON.stringify(refreshedPlayers));
-                console.log('Added and loaded default players:', refreshedPlayers.length);
+                console.log('No players in database');
+                this.playerLibrary = [];
+                localStorage.setItem('playerLibrary', JSON.stringify([]));
             }
         } catch (error) {
             console.error('Error initializing player library from Supabase:', error);

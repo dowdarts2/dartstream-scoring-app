@@ -150,87 +150,10 @@ function clearSavedGameState() {
     console.log('🗑️ Cleared saved match');
 }
 
-// Initialize default player library
+// Initialize default player library - DISABLED
 async function initializePlayerLibrary() {
-    console.log('Starting player library initialization...');
-    
-    // First, try to load from localStorage for instant display
-    const cachedPlayers = localStorage.getItem('playerLibrary');
-    if (cachedPlayers) {
-        try {
-            gameState.playerLibrary = JSON.parse(cachedPlayers);
-            console.log('Loaded players from localStorage:', gameState.playerLibrary.length);
-        } catch (error) {
-            console.error('Error parsing cached players:', error);
-            gameState.playerLibrary = [];
-        }
-    }
-    
-    // Then sync with Supabase in the background
-    try {
-        console.log('Fetching players from Supabase...');
-        const players = await PlayerDB.getAllPlayers();
-        console.log('Players fetched from Supabase:', players);
-        
-        if (players.length > 0) {
-            gameState.playerLibrary = players;
-            // Save to localStorage
-            localStorage.setItem('playerLibrary', JSON.stringify(players));
-            console.log('Synced players with Supabase:', players.length);
-        } else {
-            console.log('No players in database, adding defaults...');
-            // If no players in database, add default players
-            const defaultPlayers = [
-                { firstName: 'Aubrey', lastName: 'Holland' },
-                { firstName: 'Beth', lastName: 'Beniot' },
-                { firstName: 'Bill', lastName: 'Ferris' },
-                { firstName: 'Cecil', lastName: 'Dow' },
-                { firstName: 'Chief', lastName: 'saulnier' },
-                { firstName: 'Chris', lastName: 'Ross' },
-                { firstName: 'Cindy', lastName: 'Smith' },
-                { firstName: 'Connie', lastName: 'Dow' },
-                { firstName: 'Corey', lastName: 'Obrien' },
-                { firstName: 'Cory', lastName: 'Wallace' },
-                { firstName: 'Currie', lastName: 'Matheson' },
-                { firstName: 'Dan', lastName: 'B' },
-                { firstName: 'Dave', lastName: 'Cormier' },
-                { firstName: 'Dave', lastName: 'Pepperdean' },
-                { firstName: 'Dawn', lastName: 'Leblanc' },
-                { firstName: 'Dee', lastName: 'Cormier' },
-                { firstName: 'Denis', lastName: 'Cormier' },
-                { firstName: 'Denis', lastName: 'Leblanc' },
-                { firstName: 'Don', lastName: ',' },
-                { firstName: 'Eddie', lastName: 'Trevors' },
-                { firstName: 'Emma', lastName: 'B' },
-                { firstName: 'Eugene', lastName: 'I' },
-                { firstName: 'Fred', lastName: 'D' },
-                { firstName: 'Gerry', lastName: 'Johnston' }
-            ];
-            
-            // Add default players to database
-            for (const player of defaultPlayers) {
-                try {
-                    await PlayerDB.addPlayer(player.firstName, player.lastName);
-                } catch (error) {
-                    console.error('Error adding default player:', error);
-                }
-            }
-            
-            // Reload from database and save to localStorage
-            const freshPlayers = await PlayerDB.getAllPlayers();
-            gameState.playerLibrary = freshPlayers;
-            localStorage.setItem('playerLibrary', JSON.stringify(freshPlayers));
-            console.log('Added default players, total:', freshPlayers.length);
-        }
-    } catch (error) {
-        console.error('Error syncing with Supabase:', error);
-        // If Supabase fails and we have no cached data, use empty array
-        if (!cachedPlayers) {
-            gameState.playerLibrary = [];
-        }
-    }
-    
-    console.log('Player library initialized. Total players:', gameState.playerLibrary.length);
+    // Player library functionality removed
+    gameState.playerLibrary = [];
 }
 
 // Screen Navigation
