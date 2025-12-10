@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="application-name" content="DartStream Scoring App">
+    <meta name="apple-mobile-web-app-title" content="DartStream Scoring App">
+    <link rel="icon" type="image/png" href="dartstream-logo.png">
+    <link rel="apple-touch-icon" href="dartstream-logo.png">
+    <link rel="manifest" href="manifest-scoring.json">
+    <title>DartStream - Professional Dart Live Streaming Tools</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .landing-container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-container {
+            margin-bottom: 40px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+        }
+
+        h1 {
+            font-size: clamp(32px, 6vw, 48px);
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .tagline {
+            font-size: clamp(16px, 3vw, 20px);
+            color: #ffd700;
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        .landing-btn {
+            background: linear-gradient(to bottom, #8b0000 0%, #5a0000 100%);
+            border: 3px solid #8b0000;
+            color: #fff;
+            padding: 20px 40px;
+            font-size: clamp(18px, 4vw, 24px);
+            font-weight: bold;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: block;
+            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.4);
+        }
+
+        .landing-btn:hover {
+            background: linear-gradient(to bottom, #a00000 0%, #6a0000 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(139, 0, 0, 0.6);
+        }
+
+        .landing-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .landing-btn.primary {
+            background: linear-gradient(to bottom, #d4af37 0%, #b8941f 100%);
+            border-color: #d4af37;
+            color: #000;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .landing-btn.primary:hover {
+            background: linear-gradient(to bottom, #e4bf47 0%, #c8a42f 100%);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.6);
+        }
+
+        .landing-btn.secondary {
+            background: linear-gradient(to bottom, #1a5490 0%, #0d3d6b 100%);
+            border-color: #1a5490;
+            box-shadow: 0 4px 15px rgba(26, 84, 144, 0.4);
+        }
+
+        .landing-btn.secondary:hover {
+            background: linear-gradient(to bottom, #2a64a0 0%, #1d4d7b 100%);
+            box-shadow: 0 6px 25px rgba(26, 84, 144, 0.6);
+        }
+
+        .description {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #888;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.8s both;
+        }
+
+        .version {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #666;
+            animation: fadeIn 1s ease-out 1s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .landing-container {
+                padding: 20px;
+            }
+
+            .logo {
+                width: 150px;
+            }
+
+            .landing-btn {
+                padding: 15px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-container">
+        <div class="logo-container">
+            <img src="dartstream-logo.png" alt="DartStream Logo" class="logo">
+            <h1>DartStream</h1>
+            <p class="tagline">Professional Dart Live Streaming Tools</p>
+        </div>
+
+        <div class="button-container">
+            <a href="videostreamscoringapp.html" class="landing-btn primary">
+                🎯 Start Scoring App
+            </a>
+            
+            <a href="videostreamscoringapp.html?mode=singleplayer" class="landing-btn">
+                👤 Single Player Mode
+            </a>
+            
+            <a href="videostreamscoringapp.html?mode=multiplayer" class="landing-btn secondary">
+                🌐 Multiplayer Mode
+            </a>
+        </div>
+
+        <div class="description">
+            <p>
+                Professional dart scoring application with real-time sync,<br>
+                multiplayer support, and comprehensive match statistics.
+            </p>
+        </div>
+
+        <div class="version">
+            v1.0.0
+        </div>
+    </div>
+</body>
+</html>
